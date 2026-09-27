@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler lebih dari satu</title>
+</head>
+<body>
+    <div id="app">
+        <p>Jumlah Klik : {{klik}}</p>
+        <p>Faktorial dari {{klik}} adalah {{faktorial}}</p>
+        <p></p>
+        <button @click="tambahklik(), factorial(klik)">klik untuk menambah 1</button> 
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const {createApp} = Vue;
+
+        const App = {
+            data() {
+                return {
+                    klik:0,
+                    faktorial:1
+                }
+            },
+            methods:{
+                tambahklik(){
+                    this.klik +=1
+                },
+                factorial(number){
+                    let rval = 1
+                    for (let i = 2; i <= number; i++) {
+                        rval = rval * i
+                    }
+                    this.faktorial = rval;
+                }
+            }
+        }
+
+        createApp(App).mount('#app')
+    </script>
+</body>
+</html>
