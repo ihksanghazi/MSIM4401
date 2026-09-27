@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Binding Class & Style</title>
+</head>
+<body>
+    <style scoped>
+        .active{
+            background: cyan;
+        }
+    </style>
+
+    <div id="app">
+        <div v-bind:class="{active:isactive}"><b>{{title}}</b></div>
+        <div v-bind:style="{color:activeColor,fontSize:fontSize + 'px'}">
+            <ol>
+                <li v-for="prg in proglang">
+                    {{prg}}
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script>
+        const {createApp} = Vue;
+
+        const App = {
+            data () {
+                return {
+                    title: "Daftar Pemrograman",
+                    isactive: true,
+                    activeColor: 'blue',
+                    fontSize: '22',
+                    proglang: ['Typescript','Rust','Go','Zig','Javascript']
+                }
+            }
+        }
+
+        createApp(App).mount("#app")
+    </script>
+
+</body>
+</html>
