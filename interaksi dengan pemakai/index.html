@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaksi dengan Pemakai</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{pesan}}</p>
+        <button v-on:click="reverseStr" >Balik String</button>        
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const {createApp} = Vue;
+
+        const App = {
+            data(){
+                return{
+                    pesan: "Universitas Terbuka"
+                }
+            },
+
+            methods:{
+                reverseStr(){
+                    this.pesan = this.pesan.split("").reverse().join("")
+                }
+            }
+        }
+
+        createApp(App).mount("#app")
+    </script>
+</body>
+</html>
