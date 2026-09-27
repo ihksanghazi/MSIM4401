@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fungsi Sebagai Event Handler</title>
+</head>
+<body>
+    <div id="app">
+        <input v-model="angka1" placeholder="0" @change="hitung(angka1,angka2)" type="text"> X
+        <input v-model="angka2" placeholder="0" @change="hitung(angka1,angka2)" type="text">
+        <p>{{angka1}} X {{angka2}} = {{hasil}}</p> 
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const {createApp} = Vue;
+
+        const App = {
+            data() {
+                return {
+                    angka1:0,
+                    angka2:0,
+                    hasil:0
+                }
+            },
+            methods:{
+                hitung(a,b) {
+                    this.hasil = a * b
+                }
+            }
+        }
+
+        createApp(App).mount('#app')
+    </script>
+</body>
+</html>
