@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komponen Dasar</title>
+</head>
+<body>
+    <div id="list-mk-app">
+        <p>Universitas Terbuka</p>
+        <ol>
+            <daftar-mk
+                v-for='mkDitawarkan in daftarMK'
+                v-bind:mk='mkDitawarkan'
+                v-bind:key="mkDitawarkan.id"
+            >
+        </ol>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+
+        const App = {
+            data() {
+                return{
+                    daftarMK:[
+                        {text:"Algoritma dan Pemrograman"},
+                        {text:"Pemrograman Perangkat Bergerak"},
+                        {text:"Sistem Terdistribusi"},
+                    ]
+                }
+            },
+        }
+
+        const app = Vue.createApp(App)
+
+        app.component('daftar-mk',{
+            props: ['mk'],
+            template: '<li>{{mk.text}}</li>'
+        })
+
+        app.mount('#list-mk-app')
+
+    </script>
+    
+</body>
+</html>
