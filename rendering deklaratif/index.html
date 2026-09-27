@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendering Declaratif</title>
+</head>
+<body>
+    <div id="app">
+        Hallo {{name}}, detik berjalan: {{counter}}
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const { createApp } = Vue;
+
+        const App = {
+            data() {
+                return{
+                    name: "Vue",
+                    counter: 0
+                }
+            },
+            // fungsi mounted() dipanggil setelah komponen vue muncul dihalaman
+            mounted(){
+                setInterval(()=>{
+                    this.counter++
+                },1000)
+            }
+        }
+
+        createApp(App).mount("#app");
+    </script>
+</body>
+</html>
