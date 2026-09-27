@@ -7,7 +7,7 @@ Program ini menampilkan daftar mata kuliah menggunakan **`v-for`**. Data yang ad
 ### `v-for`
 
 ```html
-<li v-for="mk in daftarMK" :key="mk.text">
+<li v-for="mk in daftarMK" v-bind:key="mk.text">
   {{ mk.text }}
 </li>
 ```
